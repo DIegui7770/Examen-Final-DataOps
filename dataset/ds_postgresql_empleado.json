@@ -1,0 +1,17 @@
+{
+	"name": "ds_postgresql_empleado",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ds_postgresql_empleado",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "PostgreSqlV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": "rrhh",
+			"table": "empleado"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

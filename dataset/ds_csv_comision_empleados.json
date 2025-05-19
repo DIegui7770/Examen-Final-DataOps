@@ -1,0 +1,29 @@
+{
+	"name": "ds_csv_comision_empleados",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_stage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ComisionEmpleados_V1_202411.csv",
+				"fileSystem": "stage"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ID Empleado;Nombre y Apellido;Comisión",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
