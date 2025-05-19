@@ -1,0 +1,9 @@
+{
+	"name": "az-dis-dev-de-dfc-etl",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "abfa32c0-ef16-4fd5-b7de-fdedd7ace52f",
+		"tenantId": "c41399b0-aa28-46d7-a99d-30e7fae2c8e8"
+	}
+}
