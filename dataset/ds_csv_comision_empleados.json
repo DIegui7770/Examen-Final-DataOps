@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "ComisionEmpleados_V1_202411.csv",
+				"fileName": "empleados.csv",
+				"folderPath": "rrhh",
 				"fileSystem": "stage"
 			},
 			"columnDelimiter": ",",
