@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Nombre de instancia de Data Factory",
+			"defaultValue": "az-dis-dev-dfc-etl"
+		},
+		"ds_postgresql_empleado_password": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"password\"de \"ds_postgresql_empleado\""
+		},
+		"ls_adls_stage_accountKey": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"accountKey\"de \"ls_adls_stage\""
+		},
+		"ds_postgresql_empleado_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "mgg.vps.webdock.cloud"
+		},
+		"ds_postgresql_empleado_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dmc"
+		},
+		"ds_postgresql_empleado_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "usr_ro_dmc_rrhh_estudiantes"
+		},
+		"ls_adls_stage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stdataopsdev9488.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI de la cuenta de almacenamiento que contiene las plantillas de ARM vinculadas."
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Token de SAS para la cuenta de almacenamiento que contiene las plantillas de ARM vinculadas"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "az-dis-dev-dfc-etl_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ds_postgresql_empleado_password": {
+						"value": "[parameters('ds_postgresql_empleado_password')]"
+					},
+					"ls_adls_stage_accountKey": {
+						"value": "[parameters('ls_adls_stage_accountKey')]"
+					},
+					"ds_postgresql_empleado_properties_typeProperties_server": {
+						"value": "[parameters('ds_postgresql_empleado_properties_typeProperties_server')]"
+					},
+					"ds_postgresql_empleado_properties_typeProperties_database": {
+						"value": "[parameters('ds_postgresql_empleado_properties_typeProperties_database')]"
+					},
+					"ds_postgresql_empleado_properties_typeProperties_username": {
+						"value": "[parameters('ds_postgresql_empleado_properties_typeProperties_username')]"
+					},
+					"ls_adls_stage_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_stage_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
